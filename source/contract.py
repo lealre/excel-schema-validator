@@ -17,5 +17,5 @@ class sales(BaseModel):
     categoria: CategoriaEnum
 
     @field_validator('categoria')
-    def categoria_deve_estar_no_enum(cls, error):
+    def category_must_be_in_enum(cls, error):
         return error
