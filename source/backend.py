@@ -18,10 +18,10 @@ def validate_excel(uploaded_file):
             try:
                 _ = Sales(**row.to_dict())
             except Exception as e:
-                errors.append(f'Error in row {index + 2}: {e}')
+                errors.append([f'Error in row {index + 2}: {e}'])
         
         # Return the dataframe, validation results, and a list of error messages
-        return df, True, errors        
+        return True, errors        
     
     except Exception as e:
         return pd.DataFrame, f'Unexpected error: {str(e)}'
