@@ -23,6 +23,20 @@ def driver():
     process.kill()
 
 def test_app_opens(driver):
-    # Verificar se a página abre
+    '''
+    Test if page opens
+    '''
     driver.get("http://localhost:8501")
     sleep(2)
+
+def test_check_title(driver):
+    '''
+    Test if page title is correct
+    '''
+    driver.get("http://localhost:8501")
+    sleep(2)
+    page_title = driver.title
+
+    expected_title = "Excel Schema Validator"
+    assert page_title == expected_title
+
