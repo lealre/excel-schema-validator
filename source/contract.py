@@ -7,7 +7,7 @@ class CategoriaEnum(str, Enum):
     categoria2 = "categoria2"
     categoria3 = "categoria3"
 
-class sales(BaseModel):
+class Sales(BaseModel):
 
     email: EmailStr
     data: datetime

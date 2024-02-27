@@ -1,4 +1,4 @@
-from source.contract import sales 
+from source.contract import Sales 
 from datetime import datetime
 import pytest
 from pydantic import ValidationError
@@ -14,7 +14,7 @@ def test_sales_valid_data():
         "categoria": "categoria3"
     }
 
-    venda = sales(**dados_validos)
+    venda = Sales(**dados_validos)
 
     assert venda.email == dados_validos["email"]
     assert venda.data == dados_validos["data"]
@@ -35,7 +35,7 @@ def test_sales_invalid_data():
     }
 
     with pytest.raises(ValidationError):
-        sales(**dados_invalidos)
+        Sales(**dados_invalidos)
 
 def test_category_validation():
 
@@ -49,4 +49,4 @@ def test_category_validation():
     }
 
     with pytest.raises(ValidationError):
-        sales(**dados)
+        Sales(**dados)
