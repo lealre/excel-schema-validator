@@ -50,3 +50,18 @@ def test_category_validation():
 
     with pytest.raises(ValidationError):
         Sales(**dados)
+
+def test_adicional_column():
+
+    dados = {
+        "email": "comprador@example.com",
+        "data": datetime.now(),
+        "valor": 100.50,
+        "produto": "Produto Y",
+        "quantidade": 1,
+        "adicional": "",
+        "categoria": "categoria3"
+    }
+
+    with pytest.raises(ValidationError):
+        Sales(**dados)
