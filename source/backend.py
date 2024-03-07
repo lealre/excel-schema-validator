@@ -8,9 +8,9 @@ def validate_excel(uploaded_file):
         errors = []
 
         # 1 - Checks if there are more columns than it was supposed in the file
-        extra_columns = set(df) - set(Sales.model_fields.keys())
-
-        if extra_columns is None:
+        extra_columns = set(df.columns) - set(Sales.model_fields.keys())
+    
+        if extra_columns:
             return False, f"Extra columns detected in Excel file: {(',').join(extra_columns)}"
         
         # 2 - Runs every line in the Excel file to independently validate it and identify missing or incorrectly typed data

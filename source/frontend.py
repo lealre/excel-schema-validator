@@ -18,7 +18,6 @@ class ExcelValidatorUI:
     
     def display_results(self, validation_result, errors):
         if errors:
-            for error in errors:
-                st.error(f'Validation error: {error}')
+            st.error(f'Validation error: {errors}')
         else:
             st.success('Excel Schema is correct!')
