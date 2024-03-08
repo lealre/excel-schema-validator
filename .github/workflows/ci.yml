@@ -1,0 +1,13 @@
+name: ci
+
+on: pull_request
+jobs: 
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: first CI
+        run: echo first CI!
+      - name: folder content
+        run: $(ls)
+      - name: directory
+        run: echo $(pwd) 
