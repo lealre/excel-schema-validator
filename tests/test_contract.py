@@ -5,33 +5,33 @@ from pydantic import ValidationError
 
 def test_sales_valid_data():
 
-    dados_validos = {
+    valid_data = {
         "email": "comprador@example.com",
-        "data": datetime.now(),
-        "valor": 100.50,
-        "produto": "Produto X",
-        "quantidade": 3,
-        "categoria": "categoria3"
+        "date": datetime.now(),
+        "value": 100.50,
+        "product": "Product X",
+        "amount": 3,
+        "category": "category3"
     }
 
-    venda = Sales(**dados_validos)
+    sales = Sales(**valid_data)
 
-    assert venda.email == dados_validos["email"]
-    assert venda.data == dados_validos["data"]
-    assert venda.valor == dados_validos["valor"]
-    assert venda.produto == dados_validos["produto"]
-    assert venda.quantidade == dados_validos["quantidade"]
-    assert venda.categoria == dados_validos["categoria"]
+    assert sales.email == valid_data["email"]
+    assert sales.date == valid_data["date"]
+    assert sales.value == valid_data["value"]
+    assert sales.product == valid_data["product"]
+    assert sales.amount == valid_data["amount"]
+    assert sales.category == valid_data["category"]
 
 def test_sales_invalid_data():
 
     dados_invalidos = {
         "email": "comprador",
-        "data": "não é uma data",
-        "valor": -100,
-        "produto": "",
-        "quantidade": -1,
-        "categoria": 45.2
+        "data": "not a date",
+        "value": -100,
+        "product": "",
+        "amount": -1,
+        "category": 45.2
     }
 
     with pytest.raises(ValidationError):
@@ -42,10 +42,10 @@ def test_category_validation():
     dados = {
         "email": "comprador@example.com",
         "data": datetime.now(),
-        "valor": 100.50,
-        "produto": "Produto Y",
-        "quantidade": 1,
-        "categoria": 45
+        "value": 100.50,
+        "product": "Product Y",
+        "amount": 1,
+        "category": 45
     }
 
     with pytest.raises(ValidationError):
@@ -56,11 +56,11 @@ def test_adicional_column():
     dados = {
         "email": "comprador@example.com",
         "data": datetime.now(),
-        "valor": 100.50,
-        "produto": "Produto Y",
-        "quantidade": 1,
-        "adicional": "",
-        "categoria": "categoria3"
+        "value": 100.50,
+        "product": "product Y",
+        "amount": 1,
+        "test": "",
+        "category": "category3"
     }
 
     with pytest.raises(ValidationError):
