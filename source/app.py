@@ -9,8 +9,8 @@ def main():
     uploaded_file = ui.upload_file()
 
     if uploaded_file:
-        df, validation_result, errors = validate_excel(uploaded_file)
-        ui.display_results(validation_result, errors) 
+        df, errors = validate_excel(uploaded_file)
+        ui.display_results(errors) 
 
         if errors:
             ui.display_wrong_message()
