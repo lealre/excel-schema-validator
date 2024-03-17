@@ -19,6 +19,37 @@ The context of this project reflects a common scenario within organizations, whe
 
 ## How to run this project
 
+Explain here how to connect with your database
+
+### Local Setup
+
+pyenv
+```bash
+pyenv install 3.11.5
+pyenv local 3.11.5
+```
+
+virtualenv
+```bash
+python -m venv .venv
+source .venv/bin/activate
+```
+
+install dependenies
+```bash
+pip install -r requirements.txt
+```
+
+run the app
+```bash
+task run
+```
+
+run the tests
+```bash
+task run
+```
+
 ### Using Docker
 
 1. Build the image
@@ -33,11 +64,14 @@ docker build -t excel-schema .
 docker run -d -p 8051:8051 --name excel-schema-container excel-schema
 ```
 
+3. Access link in your browser
+
+
 ## Developments tools
 
-pandas==2.2.0
-pydantic==2.6.2
-pytest==8.0.2
-selenium==4.18.1
-streamlit==1.31.0
-taskipy==1.12.2
+- pandas
+- pydantic
+- pytest
+- selenium 
+- streamlit
+- taskipy
