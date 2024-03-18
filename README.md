@@ -15,11 +15,21 @@ This project uses the following contract to validate the inputted data:
 | amount   | Numeric Positive Integer                  |
 | category | Only 3 options (*category1*, *category2* or *category3*) |
 
+## Context
+
 The context of this project reflects a common scenario within organizations, where various departments routinely exchange data using Excel files that adhere to a predefined table schema. However, errors or inconsistencies, such as missing data or unexpected data formats, can disrupt workflows and cause delays in projects. By defining a clear data contract that outlines the expected structure, the application can identify any deviations from this contract. It alerts users to discrepancies, highlighting the specific rows and columns where the data does not conform to the agreed-upon schema.
 
 ## How to run this project
 
-Explain here how to connect with your database
+To properly run this project, you should connect the app with your own PostgresSQL DataBase. You can do this by running the following comand in terminal:
+
+```bash
+echo "POSTGRES_USER=<your-database-keys>" >> .env
+echo "POSTGRES_PASSWORD=<your-database-keys>" >> .env
+echo "POSTGRES_HOST=<your-database-keys>" >> .env
+echo "POSTGRES_PORT=<your-database-keys>" >> .env
+echo "POSTGRES_DB=<your-database-keys>" >> .env
+```
 
 ### Local Setup
 
@@ -53,6 +63,7 @@ task run
 ### Using Docker
 
 1. Build the image
+
 
 ```bash
 docker build -t excel-schema .
