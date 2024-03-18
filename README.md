@@ -4,7 +4,7 @@ This project consists of a web application that validates a specific Excel schem
 
 ![](pics/app-diagram.PNG)
 
-This project uses the following contract to validate the inputted data:
+The contract schema that this specific project aims to validate is as follows:
 
 | Column   | Data Type                                 |
 |----------|-------------------------------------------|
@@ -15,14 +15,27 @@ This project uses the following contract to validate the inputted data:
 | amount   | Numeric Positive Integer                  |
 | category | Only 3 options (*category1*, *category2* or *category3*) |
 
+The app functionality can be tested with the 3 files inside the [data](https://github.com/lealre/excel-schema-validator/tree/master/data) folder.
+
 ## Context
 
 The context of this project reflects a common scenario within organizations, where various departments routinely exchange data using Excel files that adhere to a predefined table schema. However, errors or inconsistencies, such as missing data or unexpected data formats, can disrupt workflows and cause delays in projects. By defining a clear data contract that outlines the expected structure, the application can identify any deviations from this contract. It alerts users to discrepancies, highlighting the specific rows and columns where the data does not conform to the agreed-upon schema.
 
 ## How to run this project
 
-To properly run this project, you should connect the app with your own PostgresSQL DataBase. You can do this by running the following comand in terminal:
+To properly run this project locally, you need to connect the app to your own PostgresSQL database. You can do this by following the steps below:
 
+1.1 - Clone the repository locally:
+```bash
+git clone https://github.com/lealre/excel-schema-validator.git
+```
+
+1.2 - Access the project folder:
+```bash
+cd excel-schema-validator
+```
+
+1.3 - Create the `.env` file in the root folder, passing the respective keys from your own PostgresSQL Database:
 ```bash
 echo "POSTGRES_USER=<your-database-keys>" >> .env
 echo "POSTGRES_PASSWORD=<your-database-keys>" >> .env
@@ -31,51 +44,65 @@ echo "POSTGRES_PORT=<your-database-keys>" >> .env
 echo "POSTGRES_DB=<your-database-keys>" >> .env
 ```
 
+1.4 - Make sure `.env` file is included in `.gitignore`.
+
+From here, we have two options to run the project:
+
+- Configuring the local setup
+- Using Docker
+
 ### Local Setup
 
-pyenv
+To configurate the local setup we will use `pyenv (2.3.35)`.
+
+Once we already clonned the repository and access the root folder (steps 1.1 and 1.2), we follow the steps below:
+
+2.1 - Install Python version 3.11.5:
 ```bash
 pyenv install 3.11.5
+```
+
+2.2 - Set the local version of Python to 3.11.5:
+```bash
 pyenv local 3.11.5
 ```
 
-virtualenv
+2.3 - Crreate a virtual enviroment and activate it:
 ```bash
 python -m venv .venv
 source .venv/bin/activate
 ```
 
-install dependenies
+2.4 - Install all dependencies from the project:
 ```bash
 pip install -r requirements.txt
 ```
 
-run the app
+2.5 - Run the project:
 ```bash
 task run
 ```
 
-run the tests
+2.6 -  (Optional) Run the tests:
 ```bash
 task run
 ```
 
 ### Using Docker
 
-1. Build the image
+Once we already clonned the repository and access the root folder (steps 1.1 and 1.2), we follow the steps below:
 
-
+3.1 -  Build the image
 ```bash
 docker build -t excel-schema .
-````
+```
 
-2. Create the container
-
+3.2-  Create the container:
 ```bash
 docker run -d -p 8051:8051 --name excel-schema-container excel-schema
 ```
 
-3. Access link in your browser
+3.3 - Access link in your browser
 
 
 ## Developments tools
