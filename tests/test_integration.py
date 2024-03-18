@@ -13,7 +13,7 @@ POSTGRES_DB = os.getenv('POSTGRES_DB')
 DATABASE_URL = f"postgresql://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_HOST}:{POSTGRES_PORT}/{POSTGRES_DB}"
 
 def test_read_data_and_check_schema():
-    df = pd.read_sql('SELECT * FROM vendas', con=DATABASE_URL)
+    df = pd.read_sql('SELECT * FROM sales', con=DATABASE_URL)
 
     # Verificar se o DataFrame não está vazio
     assert not df.empty, "DataFrame is empty."
@@ -22,10 +22,10 @@ def test_read_data_and_check_schema():
     expected_dtype = {
         'email': 'object',  
         'data': 'datetime64[ns]',
-        'valor': 'float64',
-        'quantidade': 'int64',
-        'produto': 'object',
-        'categoria': 'object'
+        'value': 'float64',
+        'amount': 'int64',
+        'product': 'object',
+        'category': 'object'
     }
     print(df.dtypes.to_dict())
     assert df.dtypes.to_dict() == expected_dtype, "The DataFrame schema is not correct."
