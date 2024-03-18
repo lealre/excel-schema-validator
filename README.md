@@ -3,7 +3,9 @@
 This project consists of a web application that validates a specific Excel schema and stores the data in a PostgresSQL database. 
 
 ## How it works
-The contract schema represents the required structure that we want to enforce and consolidate. Excel files that do not adhere to this specific schema will not be stored. For any schema that differs from the contract, the application will display a message to the user, indicating where the data schema differs from the contract schema.
+The contract schema represents the required structure that we want to enforce and consolidate. Excel files that do not adhere to this specific schema will not be stored. 
+
+For any schema that differs from the contract, the application will display a message to the user, indicating where the data schema differs from the contract schema.
 
 ![](pics/app-diagram.PNG)
 
@@ -97,9 +99,9 @@ task run
 
 ### Using Docker
 
-Once we already clonned the repository and access the root folder (steps 1.1 and 1.2), we follow the steps below:
+Once we have cloned the repository and accessed the root folder (steps 1.1 and 1.2), we follow the steps below:
 
-3.1 -  Build the image
+3.1 -  Build the image:
 ```bash
 docker build -t excel-schema .
 ```
