@@ -1,6 +1,6 @@
 # Excel Schema Validator
 
-This project consists of a web application that validates a specific Excel schema and stores the data in a database. 
+This project consists of a web application that validates a specific Excel schema and stores the data in a PostgresSQL database. 
 
 ## How it works
 The contract schema represents the required structure that we want to enforce and consolidate. Excel files that do not adhere to this specific schema will not be stored. For any schema that differs from the contract, the application will display a message to the user, indicating where the data schema differs from the contract schema.
@@ -22,7 +22,9 @@ The app functionality can be tested with the 3 files inside the [data](https://g
 
 ## Context
 
-The context of this project reflects a common scenario within organizations, where various departments routinely exchange data using Excel files that adhere to a predefined table schema. However, errors or inconsistencies, such as missing data or unexpected data formats, can disrupt workflows and cause delays in projects. By defining a clear data contract that outlines the expected structure, the application can identify any deviations from this contract. It alerts users to discrepancies, highlighting the specific rows and columns where the data does not conform to the agreed-upon schema.
+The context of this project reflects a common scenario within organizations, where various departments routinely exchange data using Excel files that adhere to a predefined table schema. However, errors or inconsistencies, such as missing data or unexpected data formats, can disrupt workflows and cause delays in projects. 
+
+By defining a clear data contract that outlines the expected structure, the application can identify any deviations from this contract. It alerts users to discrepancies, highlighting the specific rows and columns where the data does not conform to the agreed-upon schema.
 
 ## How to run this project
 
@@ -109,12 +111,4 @@ docker run -d -p 8051:8051 --name excel-schema-container excel-schema
 
 3.3 - Access link in your browser
 
-
-## Developments tools
-
-- pandas
-- pydantic
-- pytest
-- selenium 
-- streamlit
-- taskipy
+[http://localhost:8051/](http://localhost:8051/)
