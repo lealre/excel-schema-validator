@@ -1,6 +1,9 @@
 # Excel Schema Validator
 
-This project consists of a web application that validates a specific Excel schema and stores the data in a database. The contract schema represents the required structure that we want to enforce and consolidate. Excel files that do not adhere to this specific schema will not be stored. For any schema that differs from the contract, the application will display a message to the user, indicating where the data schema differs from the contract schema.
+This project consists of a web application that validates a specific Excel schema and stores the data in a database. 
+
+## How it works
+The contract schema represents the required structure that we want to enforce and consolidate. Excel files that do not adhere to this specific schema will not be stored. For any schema that differs from the contract, the application will display a message to the user, indicating where the data schema differs from the contract schema.
 
 ![](pics/app-diagram.PNG)
 
@@ -22,6 +25,8 @@ The app functionality can be tested with the 3 files inside the [data](https://g
 The context of this project reflects a common scenario within organizations, where various departments routinely exchange data using Excel files that adhere to a predefined table schema. However, errors or inconsistencies, such as missing data or unexpected data formats, can disrupt workflows and cause delays in projects. By defining a clear data contract that outlines the expected structure, the application can identify any deviations from this contract. It alerts users to discrepancies, highlighting the specific rows and columns where the data does not conform to the agreed-upon schema.
 
 ## How to run this project
+
+All the steps from here were intended to a `bash` terminal.
 
 To properly run this project locally, you need to connect the app to your own PostgresSQL database. You can do this by following the steps below:
 
@@ -53,9 +58,9 @@ From here, we have two options to run the project:
 
 ### Local Setup
 
-To configurate the local setup we will use `pyenv (2.3.35)`.
+To configure the local setup, we will use `pyenv` (version 2.3.35).
 
-Once we already clonned the repository and access the root folder (steps 1.1 and 1.2), we follow the steps below:
+Once we have cloned the repository and accessed the root folder (steps 1.1 and 1.2), we follow the steps below:
 
 2.1 - Install Python version 3.11.5:
 ```bash
@@ -67,7 +72,7 @@ pyenv install 3.11.5
 pyenv local 3.11.5
 ```
 
-2.3 - Crreate a virtual enviroment and activate it:
+2.3 - Create a virtual enviroment and activate it:
 ```bash
 python -m venv .venv
 source .venv/bin/activate
