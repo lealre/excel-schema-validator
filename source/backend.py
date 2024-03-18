@@ -36,4 +36,4 @@ def validate_excel(uploaded_file):
         return pd.DataFrame, [f'Unexpected error: {str(e)}']
 
 def excel_to_sql(df):
-    df.to_sql('vendas', con=DATABASE_URL, if_exists='replace', index=False)
+    df.to_sql('sales', con=DATABASE_URL, if_exists='replace', index=False)
