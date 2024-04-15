@@ -33,6 +33,34 @@ If the schema from the uploaded file passes validation, the app gives the option
 
 <img src="media/app-diagram.png" width = 1000 />
 
+### Project Folder Structure
+
+```
+├── Dockerfile
+├── README.md
+├── data
+│   ├── aditional_column.xlsx
+│   ├── correct.xlsx
+│   └── wrong.xlsx
+├── media
+│   ├── app-diagram.png
+│   └── demo.gif
+├── pyproject.toml
+├── requirements.txt
+├── source
+│   ├── app.py
+│   ├── backend.py
+│   ├── contract.py
+│   └── frontend.py
+├── sql
+│   └── create.sql
+└── tests
+    ├── __init__.py
+    ├── test_app.py
+    ├── test_contract.py
+    └── test_integration.py
+```
+
 ## How to run this project
 
 All the steps from here were intended to a `bash` terminal.
