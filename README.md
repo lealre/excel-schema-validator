@@ -1,13 +1,16 @@
 # Excel Schema Validator
 
-This project consists of a web application that validates a specific Excel schema and stores the data in a PostgresSQL database. 
+This project consists of a web application that validates a specific Excel schema and stores the data in a PostgreSQL database. The predefined schema is the contract schema, and the application validates it from Excel files using Pydantic, a Python validation library.
 
-## How it works
-The contract schema represents the required structure that we want to enforce and consolidate. Excel files that do not adhere to this specific schema will not be stored. 
+Additionally, this project includes Continuous Integration (CI) for every Pull Request made using GitHub Actions. The schema contract is tested, along with functional and integration tests in each PR. All tests are performed using the pytest library.
 
-For any schema that differs from the contract, the application will display a message to the user, indicating where the data schema differs from the contract schema.
+<img src="media/demo.gif" width = 1000 />
 
-![](pics/app-diagram.PNG)
+## Context
+
+The context of this project reflects a common scenario within organizations, where various departments routinely exchange data using Excel files that adhere to a predefined table schema. However, errors or inconsistencies, such as missing data or unexpected data formats, can disrupt workflows and cause delays in projects. 
+
+By defining a clear data contract that outlines the expected structure, the application can identify any deviations from this contract.
 
 The contract schema that this specific project aims to validate is as follows:
 
@@ -22,11 +25,13 @@ The contract schema that this specific project aims to validate is as follows:
 
 The app functionality can be tested with the 3 files inside the [data](https://github.com/lealre/excel-schema-validator/tree/master/data) folder.
 
-## Context
+## How it works
 
-The context of this project reflects a common scenario within organizations, where various departments routinely exchange data using Excel files that adhere to a predefined table schema. However, errors or inconsistencies, such as missing data or unexpected data formats, can disrupt workflows and cause delays in projects. 
+The user can upload Excel files in the app, and if the schema differs from the contract, the application will display a message indicating where the data schema differs from the contract schema, highlighting the specific rows and columns where the data does not conform to the agreed-upon schema.
 
-By defining a clear data contract that outlines the expected structure, the application can identify any deviations from this contract. It alerts users to discrepancies, highlighting the specific rows and columns where the data does not conform to the agreed-upon schema.
+If the schema from the uploaded file passes validation, the app gives the option to store the data in the database
+
+![](pics/app-diagram.PNG)
 
 ## How to run this project
 
@@ -94,7 +99,7 @@ task run
 
 2.6 -  (Optional) Run the tests:
 ```bash
-task run
+task test
 ```
 
 ### Using Docker
