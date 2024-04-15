@@ -31,7 +31,7 @@ The user can upload Excel files in the app, and if the schema differs from the c
 
 If the schema from the uploaded file passes validation, the app gives the option to store the data in the database
 
-![](pics/app-diagram.PNG)
+<img src="media/app-diagram.png" width = 1000 />
 
 ## How to run this project
 
